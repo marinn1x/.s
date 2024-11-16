@@ -1,0 +1,108 @@
+{
+  "spacing": 4,
+  "height": 25,
+  "modules-left": [
+    "cpu",
+    "memory",
+    "temperature",
+    "custom/separator",
+    "custom/cava_mviz"
+  ],
+  "modules-center": ["clock", "custom/separator", "hyprland/workspaces"],
+  "modules-right": ["tray", "custom/spotify", "pulseaudio", "network"],
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 4
+  },
+
+  "clock": {
+    "format": "[{:%H:%M}]",
+    "format-alt": "[{:%Y-%m-%d}]",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "cpu": {
+    "format": "[CPU:{usage}%]",
+    "tooltip": false
+  },
+
+  "network": {
+    "format-ethernet": "[Connected]",
+    "format-disconnected": "[Disconnected]",
+    "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} 󰌘",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 30
+  },
+
+  "memory": {
+    "format": "[MEM:{percentage}%]"
+  },
+
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "[!!{temperatureC}°C!!]",
+    "format": "[{temperatureC}°C]"
+  },
+
+  "pulseaudio": {
+    "format": "[VOL:{volume}%]",
+    "scroll-step": 5.0,
+    "on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle",
+    "on-click-right": "pavucontrol -t 3",
+    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+    "tooltip-format": "{icon} {desc} | {volume}%",
+    "smooth-scrolling-threshold": 1
+  },
+
+  "audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "pulseaudio",
+      "transition-left-to-right": true
+    },
+    "modules": ["pulseaudio", "pulseaudio#microphone"]
+  },
+
+  "custom/spotify": {
+    "exec": "python ~/.config/waybar/mediaplayer.py --player spotify",
+    // "format": "[ {}   ]",
+    "format": "[{}]",
+    // "max-length": 35,
+    "return-type": "json",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl play-pause",
+    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec"
+  },
+  "custom/cava_mviz": {
+    "exec": "$HOME/.config/hypr/scripts/WaybarCava.sh",
+    "format": "{}"
+  },
+  "custom/separator": {
+    "format": "",
+    "interval": "once",
+    "tooltip": false
+  }
+}

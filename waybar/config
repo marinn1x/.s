@@ -1,0 +1,39 @@
+{
+"include": [
+  "$HOME/.config/waybar/Modules",
+  "$HOME/.config/waybar/ModulesWorkspaces",
+  "$HOME/.config/waybar/ModulesCustom",
+  "$HOME/.config/waybar/ModulesGroups"
+  ],
+"layer": "top",
+"exclusive": true,
+"passthrough": false,
+"position": "top",
+"spacing": 3,
+"fixed-center": true,
+"margin-top": 3,
+"margin-left": 8,
+"margin-right": 8,
+
+"modules-left": [
+	"group/motherboard",
+	"custom/gpu_temperature",
+	"custom/separator#line",
+	"custom/weather",
+	"custom/separator#dot-line",
+	"custom/cava_mviz"
+	],
+
+"modules-center": [
+	"hyprland/workspaces#roman"
+	], 
+
+"modules-right": [
+	"network",
+	"custom/separator#line",
+	"tray",
+	"mpris", 
+	"group/audio",
+	"clock"
+	]
+}

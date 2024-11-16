@@ -1,0 +1,93 @@
+# vim:ft=kitty
+
+# Term
+# term xterm-kitty
+term xterm-256color
+
+# Opacity
+# background_image /home/marin/Pictures/wallpapers/musashi.jpg
+background_image_layout scaled
+background_opacity 0.2
+dynamic_background_opacity no
+dim_opacity 0.75
+
+# Font
+font_family Geist Mono Nerd Font
+font_size 12
+disable_ligatures never
+
+# Padding
+window_padding_width 12
+
+# The basic colors
+background #000000
+foreground #E3E3E3
+selection_background #dddddd
+selection_foreground #E3E3E3
+
+cursor #cccccc
+cursor_text_color #111111
+cursor_shape block
+cursor_blink_interval .7
+shell_integration no-cursor
+
+# URL underline color when hovering with mouse
+url_color #25be6a
+
+# Kitty window border colors
+active_border_color #78a9ff
+inactive_border_color #535353
+bell_border_color #3ddbd9
+
+dynamic_background_opacity no
+
+tab_fade 0.25 0.5 0.75 1
+tab_separator " ┇"
+tab_title_template {title}
+active_tab_title_template none
+
+# Tab bar colors
+active_tab_background #78a9ff
+active_tab_foreground #0c0c0c
+inactive_tab_background #2a2a2a
+inactive_tab_foreground #6e6f70
+#tab_bar_background #11111B
+
+#: black
+color0 #000000
+color8 #6c7086
+
+#: red
+color1 #F43E5C
+color9 #E95379
+
+#: green
+color2  #1fedb3
+color10 #94e2d5
+
+#: yellow
+color3 #F09383
+color11 #FAC29A
+
+#: blue
+color4 #1ea0dc
+color12 #176bea 
+
+#: purple
+color5 #8d57f0
+color13 #cba6f7
+
+#: teal
+color6 #72a7b1
+color14 #94e2d5
+
+#: white
+color7  #cdd6f4
+color15 #ffffff
+
+mark1_foreground black
+mark1_background #98d3cb
+mark2_foreground black
+mark2_background #f2dcd3
+mark3_foreground black
+mark3_background #f274bc

@@ -1,0 +1,246 @@
+# See https://wiki.hyprland.org/Configuring/Monitors/
+monitor = DP-1, 1920x1080@240, 0x0, 1
+
+# Execute your favorite apps at launch
+exec-once = waybar
+exec-once = hyprpaper
+exec-once = spotify
+exec-once = hyprshade on vibrance
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = hyprctl setcursor rose-pine-hyprcursor 24
+
+# See https://wiki.hyprland.org/Nvidia/
+env = LIBVA_DRIVER_NAME,nvidia
+env = XDG_SESSION_TYPE,wayland
+env = GBM_BACKEND,nvidia-drm
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+
+env = XCURSOR_THEME,BreezeX-RosePine-Linux
+env = XCURSOR_SIZE,24
+env = HYPRCURSOR_THEME,rose-pine-hyprcursor
+env = HYPRCURSOR_SIZE,24
+
+# https://wiki.hyprland.org/Configuring/Variables/#general
+general { 
+    gaps_in = 5
+    gaps_out = 13
+
+    border_size = 1
+    # col.active_border = rgba(8cb6ffff) # rgba(ff7eb6ee) 45deg 
+    # col.inactive_border = rgba(0c0e0faa) # rgba(484848aa)
+    col.active_border = 0xaa283744
+    col.inactive_border = 0x00000000
+    # Set to true enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false 
+
+    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+    allow_tearing = false
+
+    layout = dwindle
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#decoration
+decoration {
+
+    rounding = 15
+
+    # blur {
+    #     enabled = true
+    #     size = 12
+    #     passes = 4
+    #     new_optimizations = true
+    # }
+
+    blur {
+      enabled = yes
+      size = 8
+      passes = 3         #  more passes = more resources
+      ignore_opacity = 1
+      new_optimizations = true
+      noise = 0.01
+      contrast = 1     # range 0 - 2
+      brightness = 1   # range 0 - 2
+      # vibrancy = 0.8
+      # vibrancy_darkness = 0.9
+      popups = yes
+      # popups_ignorealpha = 0.8
+      special = no
+      # xray = 1
+    }
+
+    active_opacity = 1.1
+    inactive_opacity = 0.95
+    fullscreen_opacity = 1.05
+    dim_inactive = 0
+    dim_strength = 0.5
+    dim_around = 0.5
+    dim_special = 0.5
+    
+    drop_shadow = 1
+    shadow_range = 30
+    col.shadow = 0x70000000
+    col.shadow_inactive = 0x10000000
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#animations
+animations {
+    enabled = true
+
+		bezier=overshot,0.13,0.99,0.29,1.1
+    animation=windows,1,4,overshot,slide
+    animation=border,1,10,default
+    animation=fade,1,10,default
+    animation=workspaces,1,6,overshot,slidevert
+
+  # bezier = wind, 0.05, 0.9, 0.1, 1.05
+  # bezier = winIn, 0.1, 1.1, 0.1, 1.1
+  # bezier = winOut, 0.3, -0.3, 0, 1
+  # bezier = liner, 1, 1, 1, 1
+  #
+  # animation = windows, 1, 6, wind, slide
+  # animation = windowsIn, 1, 6, winIn, slide
+  # animation = windowsOut, 1, 5, winOut, slide
+  # animation = windowsMove, 1, 5, wind, slide
+  # animation = border, 1, 1, liner
+  # animation = borderangle, 1, 30, liner, loop
+  # animation = fade, 1, 10, default
+  # animation = workspaces, 1, 5, wind
+
+    # bezier=overshot,0.13,0.99,0.29,1.1
+    # animation=windows,1,4,overshot,popin
+    # animation=fade,1,10,default
+    # animation=workspaces,1,6,overshot,slide
+    # animation=border,1,10,default
+}
+
+# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+dwindle {
+    pseudotile = false
+    preserve_split = true # You probably want this
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#misc
+misc {
+    disable_splash_rendering = true
+    mouse_move_enables_dpms = true
+    force_default_wallpaper = 0 
+    disable_hyprland_logo = true
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#input
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+
+    follow_mouse = 1
+
+    sensitivity = -0.6 # -1.0 - 1.0, 0 means no modification.
+
+    touchpad {
+        natural_scroll = false
+    }
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#gestures
+gestures {
+    workspace_swipe = true
+}
+
+# Part of Nvidia config
+cursor {
+    no_hardware_cursors = true
+    enable_hyprcursor = true
+}
+
+$mainMod = ALT
+
+bind = $mainMod, RETURN, exec, kitty
+bind = $mainMod, Q, killactive
+bind = $mainMod, B, exec, zen-browser
+# bind = $mainMod, B, exec, firefox
+bind = $mainMod SHIFT, M, exit
+bind = $mainMod, W, exec, thunar
+bind = $mainMod, V, togglefloating
+bind = $mainMod, V, resizeactive, exact 1280 900
+bind = $mainMod, D, exec, wofi --show drun -a
+bind = $mainMod, space, exec, wofi --show run
+bind = $mainMod SHIFT, J, togglesplit, # dwindle
+bind = $mainMod, P, exec, grim -g "$(slurp -d)" - | wl-copy
+bind = $mainMod SHIFT, P, exec, hyprshot -m output -m DP-1 
+bind = $mainMod, N, exec, hyprpicker -a
+bind = $mainMod SHIFT, E, exec, ~/.config/wofi/wofi-power-menu.sh
+
+# Move focus with mainMod + arrow keys
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
+
+# Move focus with mainMod + vim keys
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, j, movefocus, u
+bind = $mainMod, k, movefocus, d
+
+# Window fullscreen
+bind = $mainMode, F, fullscreen
+
+# Move window with mainMod SHIFT + arrow keys
+bind = $mainMode SHIFT, left, movewindow, l
+bind = $mainMode SHIFT, right, movewindow, r
+bind = $mainMode SHIFT, up, movewindow, u
+bind = $mainMode SHIFT, down, movewindow, d
+
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
+bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
+bind = $mainMod SHIFT, 3, movetoworkspacesilent, 3
+bind = $mainMod SHIFT, 4, movetoworkspacesilent, 4
+bind = $mainMod SHIFT, 5, movetoworkspacesilent, 5
+bind = $mainMod SHIFT, 6, movetoworkspacesilent, 6
+bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
+bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
+bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
+bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
+
+# Spotify Binds
+bind = ,XF86AudioPlay, exec, playerctl --player=spotify play-pause
+bind = ,XF86AudioNext, exec, playerctl --player=spotify next
+bind = ,XF86AudioPrev, exec, playerctl --player=spotify previous
+
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e-1
+bind = $mainMod, mouse_up, workspace, e+1
+
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+# Window Rules
+windowrulev2 = opacity 0.82 0.82,class:^(.*)$
+
+windowrulev2 = workspace 5 silent,class:^(discord)$
+
+windowrulev2 = workspace 4 silent,class:^(IVPN)$
+windowrulev2 = move 1590 439,class:^(IVPN)$
+
+windowrulev2 = workspace 4 silent,class:^(Spotify)$
+windowrulev2 = float,class:^(Spotify)$
+windowrulev2 = size 1550 950,class:^(Spotify)$
+windowrulev2 = move 20 90,class:^(Spotify)$
+

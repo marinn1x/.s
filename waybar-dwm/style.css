@@ -1,0 +1,76 @@
+* {
+  font-family: "JetBrains Mono Nerd Font";
+  font-weight: bold;
+  min-height: 0;
+  /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+  font-size: 97%;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+window#waybar {
+	background:transparent;
+	border-radius: 1px;
+	color: whitesmoke;
+}
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  color: #6e6a86;
+
+}
+
+#workspaces button.active {
+  color: whitesmoke;
+}
+
+#workspaces button.focused {
+  color: #d8dee9;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  color: whitesmoke;
+}
+
+#pulseaudio,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#clock,
+#network,
+#tray,
+#custom-icon {
+  background-color: transparent;
+  margin: 0px;
+}
+
+#custom-cava_mviz {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+.modules-left {
+  background-color: @bg;
+  padding: 0px 0px 0px 0px;
+}
+
+#window {
+  color: @invText;
+  background-color: @accent;
+  padding-left: 4px;
+}
+
+.modules-right {
+  background-color: @bg;
+  padding: 0px 0px 0px 0px;
+}

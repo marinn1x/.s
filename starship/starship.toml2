@@ -1,0 +1,102 @@
+#Location: ~/.config/starship.toml
+#What_is_starship: https://starship.rs/
+
+add_newline = true
+command_timeout = 2000
+
+format = """$env_var$os$username$directory$git_branch$git_status
+$character
+"""
+
+[character]
+success_symbol = "╰⎯"
+error_symbol = "╰⎯"
+# ╭╴ ╰─
+
+[env_var]
+symbol = "╭╴"
+variable = 'SHELL'
+format = "$symbol"
+disabled = false
+
+#AAAAAA
+#warp-Drop ugly default prompt characters
+#success_symbol = ""
+#error_symbol = ""
+
+# ---
+
+[os]
+format = '[$symbol](#cdd6f4) '   
+disabled = false
+
+[os.symbols]
+Windows = ' '
+Arch = '󰣇'
+Ubuntu = ''
+Macos = '󰀵'
+Unknown = '󰠥'
+
+# ---y
+
+# Shows the username
+[username]
+style_user = '#cdd6f4'
+style_root = 'black bold'
+format = '[//](#cdd6f4) [$user](#CB0000) ' # EC2D4C # #CB0000
+disabled = false
+show_always = true
+
+# Shows current directory
+[directory]
+truncation_length = 0
+truncation_symbol = '…/'
+home_symbol = '~'
+# read_only_style = '197' read_only = '  '
+format = '[//](#cdd6f4) [$path]($style)[$read_only]($read_only_style) '
+style = '#cdd6f4' # yellow bold
+
+
+# Shows current git branch
+[git_branch]
+# symbol = ' '
+symbol = ' '
+format = '[//](white bold) [$symbol\[$branch\]]($style) '
+# truncation_length = 0
+# truncation_symbol = '…/'
+style = 'bold green'
+
+# Shows current git status
+[git_status]
+disabled = true
+format = '[ $all_status $ahead_behind]($style) '
+style = 'bold green'
+conflicted = '🏳'
+up_to_date = ''
+untracked = ' '
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+stashed = ' '
+modified = ' '
+staged = '[++\($count\)](green)'
+renamed = '襁 '
+deleted = ' '
+
+[vagrant]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[helm]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true
+
+[terraform]
+disabled = true
