@@ -1,0 +1,25 @@
+configuration {
+  modi: "drun";
+  font: "Lexend Medium 16px";
+  show-icons: true;
+  terminal: "kitty";
+  icon-theme: "Papirus";
+  drun-display-format: "{icon} {name}";
+  location: 0;
+  hide-scrollbar: true;
+  disable-history: false;
+  display-drun: "  Applications";
+  display-run: "  Run";
+  display-calc: "  Calculator";
+  display-emoji: "  Emojis";
+  sidebar-mode: false;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+@theme "cat-mocha"

@@ -1,0 +1,87 @@
+[global]
+    # Display
+    monitor = 0
+    follow = mouse
+    geometry = "250x3-30+70"
+    indicate_hidden = yes
+    shrink = no
+    transparency = 0
+    notification_height = 0
+    separator_height = 2
+    padding = 6
+    horizontal_padding = 6
+    frame_width = 2
+    frame_color = "#1e2122"
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    # Text
+    font = Lexend Medium 10
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    # Icons
+    icon_position = left
+    min_icon_size = 0
+    max_icon_size = 48
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+    # History
+    sticky_history = yes
+    history_length = 20
+
+    # Misc/Advanced
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    corner_radius = 10
+    ignore_dbusclose = false
+    force_xinerama = false
+
+    # Mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[volume]
+    appname = "pulseaudio"
+    skip_display = yes
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#a8a8a8"
+    timeout = 3
+
+[urgency_normal]
+    background = "#121212"
+    foreground = "#e5e5e5"
+    timeout = 10
+
+[urgency_critical]
+    background = "#121212"
+    foreground = "#ff8787"
+    frame_color = "#ff5f5f"
+    timeout = 0
+
+[mpd-notification]
+    appname = "mpd-notification"
+    format = "<b>Now Playing</b>\n%b"
+    max_icon_size = 96
+    timeout = 2

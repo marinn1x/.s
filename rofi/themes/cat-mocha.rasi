@@ -1,0 +1,77 @@
+@import "./colors.rasi"
+* {
+  background-color: transparent;
+  text-color: @text;
+  margin: 0;
+  padding: 0;
+}
+window {
+  transparency: "real";
+  location: center;
+  anchor: center;
+  fullscreen: false;
+  width: 32em;
+  x-offset: 0px;
+  y-offset: 0px;
+  enabled: true;
+  border: 2px solid;
+  border-color: @border;
+  border-radius: 4px;
+  background-color: @background;
+  cursor: "default";
+}
+inputbar {
+  enabled: true;
+  background-color: @prompt;
+  orientation: horizontal;
+  children: [ "entry" ];
+}
+entry {
+  enabled: true;
+  padding: 0.75em 1.25em;
+  cursor: text;
+  placeholder: "  Search application...";
+  background-color: @background;
+  placeholder-color: @stext;
+}
+listview {
+  enabled: true;
+  columns: 1;
+  lines: 5;
+  cycle: true;
+  dynamic: true;
+  scrollbar: false;
+  layout: vertical;
+  reverse: false;
+  fixed-height: true;
+  fixed-columns: true;
+  margin:  0.5em 0 0.75em;
+  cursor: "default";
+}
+element {
+  enabled: true;
+  margin: 0 0.75em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  orientation: horizontal;
+}
+element-icon {
+  size: 24px;
+}
+element normal.normal {
+  background-color: inherit;
+  text-color: inherit;
+}
+element selected.normal {
+  border: 2px solid;
+  border-color: @border;
+  border-radius: 8px;
+  background-color: @select;
+}
+element-text {
+  highlight: bold;
+  cursor: inherit;
+  vertical-align: 0.5;
+  horizontal-align: 0.0;
+  font: "Lexend Medium 16px";
+}

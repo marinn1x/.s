@@ -1,0 +1,10 @@
+@theme "cat-mocha"
+@import "./colors.rasi"
+entry {
+  placeholder: "  Search clipboard...";
+}
+element-icon {
+  enabled: false;
+  size: 0;
+}
+
